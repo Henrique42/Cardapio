@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Cardápio{% endblock %}
+{% block content %}
+<div class="container mt-5">
+	<h1 class="text-center mb-4">Boas-vindas ao nosso Cardápio Virtual!</h1>
+
+	<div class="row">
+    	{% for prato in lista_pratos %}
+			<div class="col-md-6" style="text-align: start;">
+				<div class="menu-item">
+					<img src="/media/{{prato.imagem}}" alt="Food 1">
+					<h4>{{prato.nome}}</h3>
+					<p>Preço: R${{prato.preco}}</p>
+				</div>
+			</div>
+		{% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

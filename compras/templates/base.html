@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %}{% endblock %}</title>
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<!-- Custom styles -->
+	<style>
+		.menu-item {
+		  margin-bottom: 20px;
+		  padding: 20px;
+		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		  border: 1px solid black;
+		  border-radius: 10px;
+		  width: 240px;
+		  height: 360px;
+		}
+		.menu-item img {
+		  max-width: 100%;
+		  height: auto;
+		}
+	</style>
+</head>
+<body>  
+	
+	{% block content %}
+	
+	{% endblock %} 
+ 
+	<!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
