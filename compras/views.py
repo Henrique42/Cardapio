@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from .forms import PratoForm
-from .models import Prato
+from .models import Prato, Categoria
 
 def listar_pratos(request):
-    pratos = Prato.objects.all() # Query com todos objetos da lista
+    pratos = Prato.objects.all() # Query com todos os pratos
+    categorias = Categoria.objects.all() # Query com todas as categorias
 
-    context = {'lista_pratos': pratos}
+    context = {'lista_pratos': pratos, 'lista_categorias': categorias}
     return render(request, 'index.html', context)

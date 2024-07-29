@@ -1,21 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}Cardápio{% endblock %}
 {% block content %}
-<div class="container mt-5">
-	<h1 class="text-center mb-4">Boas-vindas ao nosso Cardápio Virtual!</h1>
+    <!-- Menu Section -->
+    <section id="menu" class="menu section">
 
-	<div class="row">
-    	{% for prato in lista_pratos %}
-			<div class="col-md-6" style="text-align: start;">
-				<div class="menu-item">
-					<img src="/media/{{prato.imagem}}" alt="Food 1">
-					<h4>{{prato.nome}}</h3>
-					<p>Preço: R${{prato.preco}}</p>
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="">
+		  <h2>Menu</h2>
+		  <p>Boas-vindas ao nosso cardápio especial!</p>
+		</div><!-- End Section Title -->
+  
+		<div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+  
+		  	<div class="row" data-aos="" data-aos-delay="100">
+				<div class="col-lg-12 d-flex justify-content-center">
+			  		<ul class="menu-filters isotope-filters">
+						<li data-filter="*" class="filter-active">Tudo</li>
+						{% for categoria in lista_categorias %}
+							<li data-filter=".filter-{{categoria.nome}}">{{categoria.nome}}</li>
+						{% endfor %}
+			  		</ul>
 				</div>
-			</div>
-		{% endfor %}
-    </div>
-
-</div>
+		  	</div><!-- Menu Filters -->
+  
+		  	<div class="row isotope-container" data-aos="" data-aos-delay="">
+				{% for prato in lista_pratos %}
+					<div class="col-lg-6 menu-item isotope-item filter-{{prato.categoria.nome}}">
+						<img src="/media/{{prato.imagem}}" class="menu-img" alt="">
+						<div class="menu-content">
+							<a href="#">{{prato.nome}}</a><span>R$ {{prato.preco}}</span>
+						</div>
+						<div class="menu-ingredients">
+							{{prato.descricao}}
+						</div>
+					</div><!-- Menu Item -->
+				{% endfor %}
+		  	</div><!-- Menu Container -->
+  
+		</div>
+  
+	</section><!-- /Menu Section -->
 
 {% endblock %}
